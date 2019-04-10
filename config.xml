@@ -3,7 +3,7 @@
     <name>Testador de áudio</name>
     <description>Testando a gravação de áudios.</description>
     <author email="contato@devell.com.br" href="http://www.devell.com/">Devell</author>
-    <content original-src="index.html" src="http://172.16.0.85:8107" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -83,7 +83,6 @@
     <allow-navigation href="http://172.16.0.85:8105" sessionid="bd15a0f4" />
     <allow-navigation href="http://172.16.0.85:8106" sessionid="a914c191" />
     <allow-navigation href="http://172.16.0.85:8107" sessionid="62b715cb" />
-    <engine name="android" spec="7.1.4" />
     <plugin name="cordova-plugin-nativeaudio" spec="^3.0.9" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
@@ -92,5 +91,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^3.1.2" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
     <plugin name="cordova-plugin-audioinput" spec="git+https://github.com/edimuj/cordova-plugin-audioinput.git" />
+    <engine name="android" spec="~7.1.4" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
 </widget>

@@ -1,8 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="AudioInputCapture">
+        <param name="android-package" value="com.exelerus.cordova.audioinputcapture.AudioInputCapture" />
+    </feature>
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
     <feature name="NativeAudio">
         <param name="android-package" value="com.rjfun.cordova.plugin.nativeaudio.NativeAudio" />
     </feature>
@@ -18,14 +26,6 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="AudioInputCapture">
-        <param name="android-package" value="com.exelerus.cordova.audioinputcapture.AudioInputCapture" />
-    </feature>
-    <feature name="File">
-        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
-        <param name="onload" value="true" />
-    </feature>
-    <allow-navigation href="cdvfile:*" />
     <feature name="Keyboard">
         <param name="android-package" onload="true" value="io.ionic.keyboard.IonicKeyboard" />
     </feature>
@@ -38,7 +38,7 @@
     <name>Testador de áudio</name>
     <description>Testando a gravação de áudios.</description>
     <author email="contato@devell.com.br" href="http://www.devell.com/">Devell</author>
-    <content original-src="index.html" src="http://172.16.0.85:8107" />
+    <content original-src="index.html" src="http://192.168.0.20:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -53,6 +53,7 @@
     <allow-navigation href="http://172.16.0.85:8105" sessionid="bd15a0f4" />
     <allow-navigation href="http://172.16.0.85:8106" sessionid="a914c191" />
     <allow-navigation href="http://172.16.0.85:8107" sessionid="62b715cb" />
+    <allow-navigation href="http://192.168.0.20:8100" sessionid="d4801cdf" />
     <allow-intent href="market:*" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />

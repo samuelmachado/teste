@@ -3,26 +3,29 @@ declare let audioinput: any;
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
+import { File } from '@ionic-native/file';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-	this.audioDataBuffer: any[];
-	this.totalReceivedData: number = 0;
+	audioDataBuffer: any[];
+	totalReceivedData: number = 0;
 
-  	constructor(public navCtrl: NavController, public platform: Platform) {
+  	constructor(public navCtrl: NavController, public platform: Platform, public _file: File) {
   		console.log('construtor')
   	}
 
-  	ionViewDidLoad () {
+  	ionViewDidLoad () {	
+  		console.log(this._file.dataDirectory);
+
 		console.log("Load!");
-		this.platform.ready().then(() => {
+		this.platform.ready().then(() => { 
 			console.log('Ready')
 
 			// SAMUEL
-			// É isso aqui que eu estava testando quando parou de funcionar
+			// É isso aqui que eu estava testando quando parou de funcionar 
 			window.addEventListener('audioinput', this.onAudioInputCapture, false);
 			window.addEventListener('audioinputerror', this.onAudioInputError, false);
 		});
@@ -90,7 +93,23 @@ export class HomePage {
   	start () {
   		if (audioinput) {
   			console.log('start')
-			audioinput.start({streamToWebAudio: true});
+
+  			var dir = this._file.externalDataDirectory;
+  			console.log(dir);
+		  this._file.createFile(dir, "test.mp3", true).then((result) => {
+		      audioinput.start({
+	        	sampleRate: 44100,
+				bufferSize: 16384,
+				channels: 2, // 1 - Mono, 2 - Stereo
+				format: audioinput.FORMAT.PCM_16BIT,
+				audioSourceType: audioinput.AUDIOSOURCE_TYPE.VOICE_COMMUNICATION,
+				audioContext: this.audioContext,
+		        fileUrl: dir + '/test.mp3'
+		      })
+		    }).catch((e) => {
+		      	console.log(e);
+		      });;
+			//audioinput.start({streamToWebAudio: true});
 		}
   	}
 
