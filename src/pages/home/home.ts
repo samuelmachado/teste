@@ -45,7 +45,6 @@ export class HomePage {
 	    }
 	}
 
-
 	/**
 	 * Called when a plugin error happens.
 	 */
