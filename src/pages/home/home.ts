@@ -9,8 +9,8 @@ import { Platform } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-	audioDataBuffer: any[];
-	totalReceivedData: number = 0;
+	this.audioDataBuffer: any[];
+	this.totalReceivedData: number = 0;
 
   	constructor(public navCtrl: NavController, public platform: Platform) {
   		console.log('construtor')
@@ -34,10 +34,10 @@ export class HomePage {
 	    try {
 	        if (evt && evt.data) {
 	            // Increase the debug counter for received data
-	            totalReceivedData += evt.data.length;
+	            this.totalReceivedData += evt.data.length;
 
 	            // Add the chunk to the buffer
-	            audioDataBuffer = audioDataBuffer.concat(evt.data);
+	            this.audioDataBuffer = this.audioDataBuffer.concat(evt.data);
 	        }
 	    }
 	    catch (ex) {
